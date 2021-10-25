@@ -1,31 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+//import PropTypes from 'prop-types';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Header.module.scss';
 
-const Component = ({children}) => (
-  <div className={styles.root}>
-    <h2>Header</h2>
-    {children}
-  </div>
-);
+const Component = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-Component.propTypes = {
-  children: PropTypes.node,
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div className={styles.root}>
+      <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
+        <NavbarBrand href="/">Exceptional Jeans Shop</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ms-auto align-items-center" navbar>
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><img className={styles.cart} src="/images/shopping-cart.png" /></NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as Header,

@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 
 import styles from './Home.module.scss';
 
-const Component = ({children}) => (
+import { HomeCarousel } from '../../features/HomeCarousel/HomeCarousel';
+
+const Component = () => (
   <div className={styles.root}>
-    <h2>Home</h2>
-    {children}
+    <HomeCarousel />
   </div>
 );
 
