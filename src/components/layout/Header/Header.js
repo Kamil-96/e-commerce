@@ -23,7 +23,7 @@ const Component = (props) => {
               <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink><img className={styles.cart} src="/images/shopping-cart.png" /></NavLink>
+              <NavLink><img className={styles.cart} src="/images/shopping-cart.png" alt='' /></NavLink>
             </NavItem>
           </Nav>
         </Collapse>

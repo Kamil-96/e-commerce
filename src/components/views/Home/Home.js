@@ -1,35 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/productsRedux';
 
 import styles from './Home.module.scss';
 
 import { HomeCarousel } from '../../features/HomeCarousel/HomeCarousel';
+import { ProductSummary } from '../../features/ProductSummary/ProductSummary';
 
-const Component = () => (
+import { Container, Row } from 'reactstrap';
+
+const Component = ({products }) => (
   <div className={styles.root}>
     <HomeCarousel />
+    <h1 className={styles.title}>Find your dream jeans</h1>
+    <Container className={styles.container}>
+      <Row>
+        {products.map(product => (
+          <ProductSummary key={product.id} {...product} />
+        ))}
+      </Row>
+    </Container>
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
+  products: PropTypes.array,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  products: getAll(state),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const ComponentContainer = connect(mapStateToProps)(Component);
 
 export {
-  Component as Home,
-  // Container as Home,
+  ComponentContainer as Home,
   Component as HomeComponent,
 };

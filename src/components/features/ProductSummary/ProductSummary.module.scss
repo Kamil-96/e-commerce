@@ -1,0 +1,44 @@
+@import '../../../styles/settings.scss';
+
+.link {
+  text-decoration: none;
+  color: $text-color;
+
+  &:hover {
+    color: $text-color;
+  }
+
+  .component {
+    max-width: 300px;
+    height: 450px;
+    margin-bottom: 40px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    text-align: center;
+
+    &:hover {
+      box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25), 0px 10px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    img {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px 10px 0 0;
+      object-fit: cover;
+    }
+
+    .name {
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .name {
+    font-size: 25px;
+  }
+}
