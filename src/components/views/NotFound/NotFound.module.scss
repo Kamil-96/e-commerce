@@ -1,4 +1,10 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  margin-top: $page-margin;
+  text-align: center;
+
+  .title {
+    margin-bottom: 20px;
+  }
+}

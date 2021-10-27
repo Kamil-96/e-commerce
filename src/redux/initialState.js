@@ -8,6 +8,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-1-1.webp',
         imageTwo: '/images/products/Jeans-1-2.webp',
         imageThree: '/images/products/Jeans-1-3.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 2,
@@ -16,6 +17,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-2-1.webp',
         imageTwo: '/images/products/Jeans-2-2.webp',
         imageThree: '/images/products/Jeans-2-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 3,
@@ -24,6 +26,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-3-1.webp',
         imageTwo: '/images/products/Jeans-3-2.webp',
         imageThree: '/images/products/Jeans-3-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 4,
@@ -32,6 +35,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-4-1.webp',
         imageTwo: '/images/products/Jeans-4-2.webp',
         imageThree: '/images/products/Jeans-4-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 5,
@@ -40,6 +44,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-5-1.webp',
         imageTwo: '/images/products/Jeans-5-2.webp',
         imageThree: '/images/products/Jeans-5-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 6,
@@ -48,6 +53,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-6-1.webp',
         imageTwo: '/images/products/Jeans-6-2.webp',
         imageThree: '/images/products/Jeans-6-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 7,
@@ -56,6 +62,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-7-1.webp',
         imageTwo: '/images/products/Jeans-7-2.webp',
         imageThree: '/images/products/Jeans-7-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 8,
@@ -64,6 +71,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-8-1.webp',
         imageTwo: '/images/products/Jeans-8-2.webp',
         imageThree: '/images/products/Jeans-8-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 9,
@@ -72,6 +80,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-9-1.webp',
         imageTwo: '/images/products/Jeans-9-2.webp',
         imageThree: '/images/products/Jeans-9-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 10,
@@ -80,6 +89,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-10-1.webp',
         imageTwo: '/images/products/Jeans-10-2.webp',
         imageThree: '/images/products/Jeans-10-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 11,
@@ -88,6 +98,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-11-1.jpg',
         imageTwo: '/images/products/Jeans-11-2.webp',
         imageThree: '/images/products/Jeans-11-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
       {
         id: 12,
@@ -96,6 +107,7 @@ export const initialState = {
         imageOne: '/images/products/Jeans-12-1.webp',
         imageTwo: '/images/products/Jeans-12-2.webp',
         imageThree: '/images/products/Jeans-12-3.webp',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus consectetur, vehicula velit non, convallis arcu. Morbi ut nibh egestas, ullamcorper erat eu, convallis urna. Integer sollicitudin sapien convallis, scelerisque ex id, maximus nisl. Pellentesque nec mauris ac est faucibus porta sit amet in elit. Quisque eleifend pellentesque imperdiet. Praesent euismod lectus non ante porttitor efficitur. Sed pretium tortor.',
       },
     ],
     loading: {

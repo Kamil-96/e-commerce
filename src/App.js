@@ -7,7 +7,7 @@ import { store } from './redux/store';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Home } from './components/views/Home/Home';
 import { NotFound } from './components/views/NotFound/NotFound';
-
+import { Product } from './components/views/Product/Product';
 
 const App = () => (
   <Provider store={store}>
@@ -15,6 +15,7 @@ const App = () => (
       <MainLayout>
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/product/:id' component={Product} />
           <Route path='*' component={NotFound} />
         </Switch>
       </MainLayout>

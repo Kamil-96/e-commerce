@@ -1,34 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './NotFound.module.scss';
 
-const Component = ({children}) => (
+import { Button } from 'reactstrap';
+
+const Component = () => (
   <div className={styles.root}>
-    <h2>NotFound</h2>
-    {children}
+    <h2 className={styles.title}>Page not found</h2>
+    <Button color="secondary" href="/">Return to the homepage</Button>
   </div>
 );
 
-Component.propTypes = {
-  children: PropTypes.node,
-};
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as NotFound,
-  // Container as NotFound,
   Component as NotFoundComponent,
 };
