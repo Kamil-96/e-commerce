@@ -7,6 +7,9 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } f
 
 import styles from './Header.module.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 const Component = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,8 +25,9 @@ const Component = (props) => {
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink><img className={styles.cart} src="/images/shopping-cart.png" alt='' /></NavLink>
+            <NavItem className={styles.cartWrapper}>
+              <NavLink className={styles.link} href="/cart">Cart</NavLink>
+              <FontAwesomeIcon icon={faShoppingCart} />
             </NavItem>
           </Nav>
         </Collapse>

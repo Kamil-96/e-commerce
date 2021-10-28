@@ -8,6 +8,7 @@ import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Home } from './components/views/Home/Home';
 import { NotFound } from './components/views/NotFound/NotFound';
 import { Product } from './components/views/Product/Product';
+import { Cart } from './components/views/Cart/Cart';
 
 const App = () => (
   <Provider store={store}>
@@ -16,6 +17,7 @@ const App = () => (
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/product/:id' component={Product} />
+          <Route exact path='/cart' component={Cart} />
           <Route path='*' component={NotFound} />
         </Switch>
       </MainLayout>
