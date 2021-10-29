@@ -16,3 +16,9 @@
     filter: invert(0.7);
   }
 }
+
+@media (max-width: 332px) {
+  .logo {
+    font-size: 15px !important;
+  }
+}

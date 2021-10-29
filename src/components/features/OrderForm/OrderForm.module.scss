@@ -1,0 +1,42 @@
+@import '../../../styles/settings.scss';
+
+.columnsWrapper {
+  justify-content: space-around;
+}
+
+.contentWrapper {
+  margin-top: 20px !important;
+  box-shadow: 0px 0px 15px 0px rgba(108, 117, 125, 1);
+  border-radius: $radius;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .contentWrapper:last-of-type {
+    margin: 30px 0 30px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

@@ -9,6 +9,7 @@ import { Home } from './components/views/Home/Home';
 import { NotFound } from './components/views/NotFound/NotFound';
 import { Product } from './components/views/Product/Product';
 import { Cart } from './components/views/Cart/Cart';
+import { Form } from './components/views/Form/Form';
 
 const App = () => (
   <Provider store={store}>
@@ -18,6 +19,7 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/product/:id' component={Product} />
           <Route exact path='/cart' component={Cart} />
+          <Route exact path='/form' component={Form} />
           <Route path='*' component={NotFound} />
         </Switch>
       </MainLayout>
