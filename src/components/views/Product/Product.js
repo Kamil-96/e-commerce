@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getProductById } from '../../../redux/productsRedux';
 
 import styles from './Product.module.scss';
@@ -10,7 +10,10 @@ import { Container, Row, Col, Button, Input } from 'reactstrap';
 
 import { NotFound } from '../NotFound/NotFound';
 
-const Component = ({product}) => {
+const Component = () => {
+
+  const product = useSelector((state, props) => getProductById(state, props.match.params.id));
+
   if(!product) return <NotFound />;
 
   else return (
@@ -43,17 +46,7 @@ Component.propTypes = {
   product: PropTypes.object,
 };
 
-const mapStateToProps = (state, props) => ({
-  product: getProductById(state, props.match.params.id),
-});
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-const ComponentContainer = connect(mapStateToProps)(Component);
-
 export {
-  ComponentContainer as Product,
+  Component as Product,
   Component as ProductComponent,
 };
