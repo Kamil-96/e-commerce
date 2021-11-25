@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getProductById } from '../../../redux/productsRedux';
+import { addToCart } from '../../../redux/cartRedux';
 
 import styles from './Product.module.scss';
 
@@ -10,9 +11,16 @@ import { Container, Row, Col, Button, Input } from 'reactstrap';
 
 import { NotFound } from '../NotFound/NotFound';
 
-const Component = () => {
+const Component = ( props ) => {
 
-  const product = useSelector((state, props) => getProductById(state, props.match.params.id));
+  const dispatch = useDispatch();
+  const product = useSelector(state => getProductById(state, props.match.params.id));
+  const addProduct = product => dispatch(addToCart(product));
+
+  const handleClick = e => {
+    e.preventDefault();
+    addProduct(product);
+  };
 
   if(!product) return <NotFound />;
 
@@ -35,7 +43,7 @@ const Component = () => {
             <option>3</option>
             <option>4</option>
           </Input>
-          <Button className={styles.button}>Add to cart</Button>
+          <Button className={styles.button} onClick={e => handleClick(e)} >Add to cart</Button>
         </Col>
       </Row>
     </Container>
