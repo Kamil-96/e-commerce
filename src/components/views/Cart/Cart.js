@@ -1,8 +1,4 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Cart.module.scss';
 import { Col, Container, Row, Button } from 'reactstrap';
@@ -37,22 +33,7 @@ const Component = () => (
   </Container>
 );
 
-//Component.propTypes = {
-
-//};
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Cart,
-  // Container as Cart,
   Component as CartComponent,
 };
