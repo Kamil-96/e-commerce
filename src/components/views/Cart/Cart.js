@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getAllCartProducts } from '../../../redux/cartRedux';
+import { getAllCartProducts, removeFromCart } from '../../../redux/cartRedux';
 
 import styles from './Cart.module.scss';
 import { Col, Container, Row, Button } from 'reactstrap';
@@ -11,7 +11,9 @@ import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Component = () => {
 
+  const dispatch = useDispatch();
   const cartProducts = useSelector(state => getAllCartProducts(state));
+  const removeProduct = id => dispatch(removeFromCart(id));
 
   return(
     <Container className={styles.root}>
@@ -30,7 +32,7 @@ const Component = () => {
           <Col xs="12" md="2">
             <h4>{cartProduct.price}</h4>
           </Col>
-          <Col xs="12" md="2"><button className={styles.btnTrash}><FontAwesomeIcon className={styles.icon} icon={faTrashAlt} /></button></Col>
+          <Col xs="12" md="2"><button className={styles.btnTrash} onClick={e => removeProduct(cartProduct.id)}><FontAwesomeIcon className={styles.icon} icon={faTrashAlt} /></button></Col>
           <Col>
             <textarea className={styles.messageInput} name="message" placeholder="Type your message to personalize the product (optional)" rows="1" />
           </Col>
