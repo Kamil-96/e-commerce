@@ -1,5 +1,23 @@
 @import '../../../styles/settings.scss';
 
+.logo {
+  font-size: 22px;
+  color: $btn-cart;
+}
+
+.navItem {
+  margin-right: 10px;
+}
+
+.navLink {
+  color: $nav-text;
+
+
+  &:hover {
+    color: $nav-text-hover;
+  }
+}
+
 .cart {
   height: 18px;
 }

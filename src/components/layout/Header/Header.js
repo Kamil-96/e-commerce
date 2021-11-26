@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-//import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from 'reactstrap';
 
 import styles from './Header.module.scss';
 
@@ -14,23 +14,23 @@ const Component = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className={styles.root}>
-      <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
-        <NavbarBrand className={styles.logo} href="/">Exceptional Jeans Shop</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ms-auto align-items-center" navbar>
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-            <NavItem className={styles.cartWrapper}>
-              <NavLink className={styles.link} href="/cart">Cart</NavLink>
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+    <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
+      <Link to="/">
+        <span className={styles.logo}>Exceptional Jeans Shop</span>
+      </Link>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="ms-auto align-items-center" navbar>
+          <NavItem className={styles.navItem}>
+            <NavLink className={styles.navLink} exact to="/">Home</NavLink>
+          </NavItem>
+          <NavItem className={styles.cartWrapper}>
+            <NavLink exact to="/cart" className={`${styles.link} ${styles.navLink}`} >Cart</NavLink>
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </NavItem>
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 };
 
@@ -38,3 +38,23 @@ export {
   Component as Header,
   Component as HeaderComponent,
 };
+
+/*
+<div className={styles.root}>
+  <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
+    <NavbarBrand className={styles.logo} href="/">Exceptional Jeans Shop</NavbarBrand>
+    <NavbarToggler onClick={toggle} />
+    <Collapse isOpen={isOpen} navbar>
+      <Nav className="ms-auto align-items-center" navbar>
+        <NavItem>
+          <NavLink href="/">Home</NavLink>
+        </NavItem>
+        <NavItem className={styles.cartWrapper}>
+          <NavLink className={styles.link} href="/cart">Cart</NavLink>
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </NavItem>
+      </Nav>
+    </Collapse>
+  </Navbar>
+</div>
+*/
