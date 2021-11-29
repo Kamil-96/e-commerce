@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  margin-top: $page-margin;
+  margin: $page-margin 20px;
   padding: 20px;
   max-width: 800px !important;
   box-shadow: 0px 0px 15px 0px rgba(108, 117, 125, 1);
@@ -48,6 +48,17 @@
   text-align: center;
 }
 
+// remove arrows from input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .icon {
   width: 35px !important;
   height: 35px;
@@ -57,6 +68,11 @@
 .messageInput {
   width: 100%;
   margin-top: 10px;
+}
+
+.emptyInfo {
+  font-size: 50px;
+  text-align: center;
 }
 
 @media (max-width: 767px) {

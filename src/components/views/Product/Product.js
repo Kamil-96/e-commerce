@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,12 +13,15 @@ import { NotFound } from '../NotFound/NotFound';
 
 const Component = ( props ) => {
 
+  const [amount, setAmount] = useState(1);
+
   const dispatch = useDispatch();
   const product = useSelector(state => getProductById(state, props.match.params.id));
   const addProduct = product => dispatch(addToCart(product));
 
   const handleClick = e => {
     e.preventDefault();
+    product.amount = amount;
     addProduct(product);
   };
 
@@ -37,7 +40,7 @@ const Component = ( props ) => {
           <h2 className={styles.title}>{product.name}</h2>
           <p>{product.description}</p>
           <h3>Select number of products</h3>
-          <Input className={styles.input} type="select" name="select" id="exampleSelect">
+          <Input className={styles.input} type="select" name="select" id="exampleSelect" value={amount} onChange={e => setAmount(e.target.value)}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
