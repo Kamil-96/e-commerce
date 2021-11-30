@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { getAllCartProducts, removeFromCart, amountIncrease, amountDecrease } from '../../../redux/cartRedux';
 
+import formatPrice from '../../../utils/formatPrice';
+import calculatePrice from '../../../utils/calculatePrice';
+
 import styles from './Cart.module.scss';
 import { Col, Container, Row, Button } from 'reactstrap';
 
@@ -33,7 +36,7 @@ const Component = () => {
             </div>
           </Col>
           <Col xs="12" md="2">
-            <h4>{cartProduct.price}</h4>
+            <h4>{`$${calculatePrice(formatPrice(cartProduct.price), cartProduct.amount)}`}</h4>
           </Col>
           <Col xs="12" md="2"><button className={styles.btnTrash} onClick={() => removeProduct(cartProduct.id)}><FontAwesomeIcon className={styles.icon} icon={faTrashAlt} /></button></Col>
           <Col>

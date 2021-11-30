@@ -38,23 +38,3 @@ export {
   Component as Header,
   Component as HeaderComponent,
 };
-
-/*
-<div className={styles.root}>
-  <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
-    <NavbarBrand className={styles.logo} href="/">Exceptional Jeans Shop</NavbarBrand>
-    <NavbarToggler onClick={toggle} />
-    <Collapse isOpen={isOpen} navbar>
-      <Nav className="ms-auto align-items-center" navbar>
-        <NavItem>
-          <NavLink href="/">Home</NavLink>
-        </NavItem>
-        <NavItem className={styles.cartWrapper}>
-          <NavLink className={styles.link} href="/cart">Cart</NavLink>
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </NavItem>
-      </Nav>
-    </Collapse>
-  </Navbar>
-</div>
-*/
