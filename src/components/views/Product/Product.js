@@ -21,7 +21,7 @@ const Component = ( props ) => {
 
   const handleClick = e => {
     e.preventDefault();
-    product.amount = amount;
+    product.amount = parseInt(amount);
     addProduct(product);
   };
 

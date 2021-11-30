@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getAllCartProducts, removeFromCart, amountIncrease } from '../../../redux/cartRedux';
+import { getAllCartProducts, removeFromCart, amountIncrease, amountDecrease } from '../../../redux/cartRedux';
 
 import styles from './Cart.module.scss';
 import { Col, Container, Row, Button } from 'reactstrap';
@@ -15,7 +15,8 @@ const Component = () => {
   const dispatch = useDispatch();
   const cartProducts = useSelector(state => getAllCartProducts(state));
   const removeProduct = id => dispatch(removeFromCart(id));
-  const increaseAmount = payload => dispatch(amountIncrease(payload));
+  const increaseAmount = id => dispatch(amountIncrease(id));
+  const decreaseAmount = id => dispatch(amountDecrease(id));
 
   return(
     <Container className={styles.root}>
@@ -26,9 +27,9 @@ const Component = () => {
           </Col>
           <Col xs="12" md="3">
             <div className={styles.inputWrapper}>
-              <button className={styles.btn}><FontAwesomeIcon icon={faMinus} /></button>
+              <button className={styles.btn} onClick={() => cartProduct.amount > 1 ? decreaseAmount(cartProduct.id) : false}><FontAwesomeIcon icon={faMinus} /></button>
               <input className={styles.input} type="number" min="1" max="3" value={cartProduct.amount} />
-              <button className={styles.btn} onClick={() => increaseAmount(cartProduct.id)}><FontAwesomeIcon icon={faPlus} /></button>
+              <button className={styles.btn} onClick={() => cartProduct.amount < 3 ? increaseAmount(cartProduct.id) : false}><FontAwesomeIcon icon={faPlus} /></button>
             </div>
           </Col>
           <Col xs="12" md="2">

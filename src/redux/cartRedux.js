@@ -21,7 +21,7 @@ export const amountDecrease = payload => ({ payload, type: AMOUNT_DECREASE });
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
     case ADD_TO_CART: {
-      if (statePart.find(item => item.id == action.payload.id)) {   //eslint-disable-line
+      if (statePart.find(item => item.id === action.payload.id)) {
         alert('You have already added this product to the cart');
         return statePart;
       } else {
@@ -32,10 +32,10 @@ export const reducer = (statePart = [], action = {}) => {
       return statePart.filter(product => product.id !== action.payload);
     }
     case AMOUNT_INCREASE: {
-      const changedItem = statePart.find(item => item.id == action.payload);
-      return {
-
-      };
+      return statePart.map(item => item.id === action.payload ? { ...item, amount: item.amount + 1 } : item);
+    }
+    case AMOUNT_DECREASE: {
+      return statePart.map(item => item.id === action.payload ? { ...item, amount: item.amount - 1 } : item);
     }
     default:
       return statePart;
