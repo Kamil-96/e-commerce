@@ -22,7 +22,7 @@ const items = [
   },
 ];
 
-const Component = (props) => {
+const HomeCarousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -71,7 +71,4 @@ const Component = (props) => {
   );
 };
 
-export {
-  Component as HomeCarousel,
-  Component as HomeCarouselComponent,
-};
+export default HomeCarousel;

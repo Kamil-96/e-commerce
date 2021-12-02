@@ -6,7 +6,7 @@ import styles from './ProductSummary.module.scss';
 
 import { Col } from 'reactstrap';
 
-const Component = ({ id, imageOne, name, price }) => (
+const ProductSummary = ({ id, imageOne, name, price }) => (
   <Col xs="12" sm="6" md="4" lg="3">
     <Link to={`/product/${id}`} className={styles.link}>
       <article className={styles.component}>
@@ -18,14 +18,11 @@ const Component = ({ id, imageOne, name, price }) => (
   </Col>
 );
 
-Component.propTypes = {
+ProductSummary.propTypes = {
   id: PropTypes.number,
   imageOne: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.string,
 };
 
-export {
-  Component as ProductSummary,
-  Component as ProductSummaryComponent,
-};
+export default ProductSummary;

@@ -9,9 +9,9 @@ import styles from './Product.module.scss';
 
 import { Container, Row, Col, Button, Input } from 'reactstrap';
 
-import { NotFound } from '../NotFound/NotFound';
+import NotFound from '../NotFound/NotFound';
 
-const Component = ( props ) => {
+const Product = ( props ) => {
 
   const [amount, setAmount] = useState(1);
 
@@ -52,11 +52,8 @@ const Component = ( props ) => {
   );
 };
 
-Component.propTypes = {
+Product.propTypes = {
   product: PropTypes.object,
 };
 
-export {
-  Component as Product,
-  Component as ProductComponent,
-};
+export default Product;

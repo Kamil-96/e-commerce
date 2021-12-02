@@ -13,7 +13,7 @@ import { Col, Container, Row, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
-const Component = () => {
+const Cart = () => {
 
   const dispatch = useDispatch();
   const cartProducts = useSelector(state => getAllCartProducts(state));
@@ -56,7 +56,4 @@ const Component = () => {
   );
 };
 
-export {
-  Component as Cart,
-  Component as CartComponent,
-};
+export default Cart;

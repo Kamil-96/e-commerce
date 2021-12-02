@@ -10,7 +10,7 @@ import styles from './OrderSummary.module.scss';
 
 import { Button, Container} from 'reactstrap';
 
-const Component = () => {
+const OrderSummary = () => {
 
   const cartProducts = useSelector(state => getAllCartProducts(state));
 
@@ -40,7 +40,4 @@ const Component = () => {
   );
 };
 
-export {
-  Component as OrderSummary,
-  Component as OrderSummaryComponent,
-};
+export default OrderSummary;

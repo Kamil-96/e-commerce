@@ -6,12 +6,12 @@ import { getAll } from '../../../redux/productsRedux';
 
 import styles from './Home.module.scss';
 
-import { HomeCarousel } from '../../features/HomeCarousel/HomeCarousel';
-import { ProductSummary } from '../../features/ProductSummary/ProductSummary';
+import HomeCarousel from '../../features/HomeCarousel/HomeCarousel';
+import ProductSummary from '../../features/ProductSummary/ProductSummary';
 
 import { Container, Row } from 'reactstrap';
 
-const Component = () => {
+const Home = () => {
 
   const products = useSelector(state => getAll(state));
 
@@ -30,11 +30,8 @@ const Component = () => {
   );
 };
 
-Component.propTypes = {
+Home.propTypes = {
   products: PropTypes.array,
 };
 
-export {
-  Component as Home,
-  Component as HomeComponent,
-};
+export default Home;

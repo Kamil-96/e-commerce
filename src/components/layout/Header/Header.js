@@ -8,7 +8,7 @@ import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Component = (props) => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -34,7 +34,4 @@ const Component = (props) => {
   );
 };
 
-export {
-  Component as Header,
-  Component as HeaderComponent,
-};
+export default Header;

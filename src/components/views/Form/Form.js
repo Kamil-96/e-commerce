@@ -4,15 +4,12 @@ import styles from './Form.module.scss';
 
 import { Container } from 'reactstrap';
 
-import { OrderForm } from '../../features/OrderForm/OrderForm';
+import OrderForm from '../../features/OrderForm/OrderForm';
 
-const Component = () => (
+const Form = () => (
   <Container className={styles.root}>
     <OrderForm />
   </Container>
 );
 
-export {
-  Component as Form,
-  Component as FormComponent,
-};
+export default Form;

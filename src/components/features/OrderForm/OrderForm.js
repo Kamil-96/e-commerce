@@ -4,9 +4,9 @@ import styles from './OrderForm.module.scss';
 
 import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 
-import { OrderSummary } from '../OrderSummary/OrderSummary';
+import OrderSummary from '../OrderSummary/OrderSummary';
 
-const Component = () => (
+const OrderForm = () => (
   <div className={styles.root}>
     <h1 className={styles.title}>Order products</h1>
     <Form>
@@ -40,7 +40,4 @@ const Component = () => (
   </div>
 );
 
-export {
-  Component as OrderForm,
-  Component as OrderFormComponent,
-};
+export default OrderForm;

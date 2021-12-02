@@ -1,7 +1,7 @@
 /* selectors */
 export const getAll = ({products}) => products.data;
 export const getProductById =({products}, productId) => {
-  const filtered = products.data.filter(product => product.id == productId); //eslint-disable-line
+  const filtered = products.data.filter(product => product.id === parseInt(productId));
 
   return filtered.length ? filtered[0] : null;
 };
