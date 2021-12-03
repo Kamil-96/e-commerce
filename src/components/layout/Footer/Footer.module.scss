@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: ($base-size * 2.5);
+  background: $footer-background;
+  padding: 0 ($base-size * 0.5);
+}
+
+.text {
+  color: $footer-text;
+  margin-right: ($base-size * 0.75);
+}
+
+.iconsList {
+  margin: auto;
+  padding: 0;
+}
+
+.iconElem {
+  font-size: 0;
+  display: inline-block;
+}
+
+.icon {
+  padding-right: ($base-size * 0.25);
+  font-size: ($base-size * 1.25);
+  color: $footer-icon-color;
+
+  &:hover {
+    color: $footer-icon-hover;
+  }
+}
+
+@media (max-width: 372px) {
+  .icon {
+    font-size: 20px;
+  }
+}

@@ -1,8 +1,12 @@
 @import '../../../styles/settings.scss';
 
 .root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: $page-margin;
-  text-align: center;
+  min-height: calc(100vh - 120px);
 
   .title {
     margin-bottom: 20px;

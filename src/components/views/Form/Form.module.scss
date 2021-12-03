@@ -2,4 +2,5 @@
 
 .root {
   margin-top: $page-margin;
+  min-height: calc(100vh - 120px);
 }
