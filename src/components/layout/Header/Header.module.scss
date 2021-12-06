@@ -2,19 +2,19 @@
 
 .logo {
   font-size: 22px;
-  color: $btn-cart;
+  color: $header-logo;
 }
 
 .navItem {
-  margin-right: 10px;
+  margin-right: ($base-size * 0.5);
 }
 
 .navLink {
-  color: $nav-text;
+  color: $header-nav-text;
 
 
   &:hover {
-    color: $nav-text-hover;
+    color: $header-nav-text-hover;
   }
 }
 
@@ -37,6 +37,6 @@
 
 @media (max-width: 332px) {
   .logo {
-    font-size: 15px !important;
+    font-size: ($base-size * 0.75) !important;
   }
 }

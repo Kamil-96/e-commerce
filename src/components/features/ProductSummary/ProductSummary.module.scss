@@ -2,49 +2,49 @@
 
 .link {
   text-decoration: none;
-  color: $text-color;
+  color: $product-summary-text;
 
   &:hover {
-    color: $text-color;
+    color: $product-summary-text;
   }
 
   .component {
     max-width: 300px;
     height: 450px;
-    margin-bottom: 40px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.19);
+    margin-bottom: ($base-size * 2);
+    box-shadow: $product-summary-box-shadow;
     border-radius: 10px;
     text-align: center;
 
     &:hover {
-      box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25), 0px 10px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: $product-summary-box-shadow-hover;
     }
 
     img {
       width: 100%;
       height: 350px;
-      border-radius: 10px 10px 0 0;
+      border-radius: $radius $radius 0 0;
       object-fit: cover;
     }
 
     .name {
-      margin-top: 10px;
+      margin-top: ($base-size * 0.5);
     }
 
     p {
-      font-size: 20px;
+      font-size: $base-size;
     }
   }
 }
 
 @media (min-width: 1000px) and (max-width: 1200px) {
   .name {
-    font-size: 25px;
+    font-size: ($base-size * 1.25);
   }
 }
 
 @media (max-width:576px) {
   .component {
-    margin: 0 auto 40px auto;
+    margin: 0 auto ($base-size * 2);
   }
 }

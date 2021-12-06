@@ -2,9 +2,9 @@
 
 .root {
   margin: $page-margin auto $base-size;
-  padding: 20px;
+  padding: $base-size;
   max-width: 800px !important;
-  box-shadow: 0px 0px 15px 0px rgba(108, 117, 125, 1);
+  box-shadow: $cart-box-shadow;
   border-radius: $radius;
   min-height: calc(100vh - 140px);
   position: relative;
@@ -17,7 +17,7 @@
 .wrapper {
   text-align: center;
   align-items: center;
-  margin: 20px 0 !important;
+  margin: $base-size 0 !important;
 }
 
 .inputWrapper {
@@ -26,27 +26,27 @@
 
 .btnWrapper {
   text-align: center;
-  margin: 40px 0 20px;
+  margin: ($base-size * 2) 0 $base-size;
 }
 
 .btn {
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
-  background-color: $btn-cart;
-  border: 1px solid $btn-bg;
+  width: $base-size * 2;
+  height: $base-size * 2;
+  margin: 0 ($base-size * 0.25);
+  background-color: $cart-btn-bg;
+  border: 1px solid $cart-btn-border;
 }
 
 .btnTrash {
-  width: 40px;
-  height: 40px;
-  background-color: $btn-cart;
+  width: $base-size * 2;
+  height: $base-size * 2;
+  background-color: $cart-btn-bg;
   border: none;
 }
 
 .input {
-  width: 40px;
-  height: 40px;
+  width: $base-size * 2;
+  height: $base-size * 2;
   text-align: center;
 }
 
@@ -62,18 +62,18 @@ input[type=number] {
 }
 
 .icon {
-  width: 35px !important;
-  height: 35px;
+  width: ($base-size * 1.75) !important;
+  height: $base-size * 1.75;
   filter: invert(0.6);
 }
 
 .messageInput {
   width: 100%;
-  margin-top: 10px;
+  margin-top: ($base-size * 0.5);
 }
 
 .emptyInfo {
-  font-size: 50px;
+  font-size: ($base-size * 2.5);
   text-align: center;
   position: absolute;
   top: 50%;
@@ -88,11 +88,11 @@ input[type=number] {
 
   .inputWrapper {
     justify-content: center;
-    margin: 10px 0;
+    margin: ($base-size * 0.5) 0;
   }
 
   .btnTrash {
-    margin-top: 10px;
+    margin-top: ($base-size * 0.5);
   }
 }
 
