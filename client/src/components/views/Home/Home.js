@@ -12,7 +12,6 @@ import ProductSummary from '../../features/ProductSummary/ProductSummary';
 import { Container, Row } from 'reactstrap';
 
 const Home = () => {
-
   const products = useSelector(state => getAll(state));
 
   return (

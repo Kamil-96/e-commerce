@@ -8,14 +8,17 @@ import calculatePrice from '../../../utils/calculatePrice';
 
 import styles from './OrderSummary.module.scss';
 
-import { Button, Container} from 'reactstrap';
+import Button from '../../common/Button/Button';
+
+import { Container } from 'reactstrap';
 
 const OrderSummary = () => {
-
   const cartProducts = useSelector(state => getAllCartProducts(state));
 
   const delivery = 20;
-  const productsPrice = cartProducts.map(product => calculatePrice(formatPrice(product.price), product.amount));
+  const productsPrice = cartProducts.map(product =>
+    calculatePrice(formatPrice(product.price), product.amount)
+  );
   const subtotalPrice = productsPrice.reduce((a, b) => a + b, 0);
   const totalPrice = `$${subtotalPrice + delivery}`;
 
@@ -34,7 +37,7 @@ const OrderSummary = () => {
         <h2>{totalPrice}</h2>
       </div>
       <div className={styles.btn}>
-        <Button size="lg">Place your order</Button>
+        <Button variant='big'>Place your order</Button>
       </div>
     </Container>
   );
