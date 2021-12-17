@@ -8,24 +8,32 @@ import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Header = (props) => {
+const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <Navbar color="dark" dark expand="md" className="px-3 fixed-top">
-      <Link to="/">
-        <span className={styles.logo}>Exceptional Jeans Shop</span>
+    <Navbar color='dark' dark expand='md' className='px-3 fixed-top'>
+      <Link to='/'>
+        <span className={styles.logo}>Exceptional Shop</span>
       </Link>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
-        <Nav className="ms-auto align-items-center" navbar>
+        <Nav className='ms-auto align-items-center' navbar>
           <NavItem className={styles.navItem}>
-            <NavLink className={styles.navLink} exact to="/">Home</NavLink>
+            <NavLink className={styles.navLink} exact to='/'>
+              Home
+            </NavLink>
           </NavItem>
           <NavItem className={styles.cartWrapper}>
-            <NavLink exact to="/cart" className={`${styles.link} ${styles.navLink}`} >Cart</NavLink>
+            <NavLink
+              exact
+              to='/cart'
+              className={`${styles.link} ${styles.navLink}`}
+            >
+              Cart
+            </NavLink>
             <FontAwesomeIcon icon={faShoppingCart} />
           </NavItem>
         </Nav>

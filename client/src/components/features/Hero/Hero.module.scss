@@ -1,0 +1,36 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  position: relative;
+  height: 100vh;
+  background: $color-dark;
+}
+
+.container {
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  color: $color-white;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  font-size: calc(20px + 3vw);
+}
+
+.subtitle {
+  font-size: calc(20px + 2vw);
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}

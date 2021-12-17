@@ -6,8 +6,8 @@ import { getAll } from '../../../redux/productsRedux';
 
 import styles from './Home.module.scss';
 
-import HomeCarousel from '../../features/HomeCarousel/HomeCarousel';
 import ProductSummary from '../../features/ProductSummary/ProductSummary';
+import Hero from '../../features/Hero/Hero';
 
 import { Container, Row } from 'reactstrap';
 
@@ -16,8 +16,8 @@ const Home = () => {
 
   return (
     <div className={styles.root}>
-      <HomeCarousel />
-      <h1 className={styles.title}>Find your dream jeans</h1>
+      <Hero />
+      <h1 className={styles.title}>Find your dream clothes!</h1>
       <Container className={styles.container}>
         <Row>
           {products.map(product => (

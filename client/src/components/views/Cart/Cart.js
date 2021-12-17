@@ -7,6 +7,7 @@ import {
   removeFromCart,
   amountIncrease,
   amountDecrease,
+  amountChange,
 } from '../../../redux/cartRedux';
 
 import formatPrice from '../../../utils/formatPrice';
@@ -27,6 +28,7 @@ const Cart = () => {
   const removeProduct = id => dispatch(removeFromCart(id));
   const increaseAmount = id => dispatch(amountIncrease(id));
   const decreaseAmount = id => dispatch(amountDecrease(id));
+  const changeAmount = payload => dispatch(amountChange(payload));
 
   return (
     <Container className={styles.root}>
@@ -53,6 +55,11 @@ const Cart = () => {
                 min='1'
                 max='3'
                 value={cartProduct.amount}
+                onChange={e =>
+                  parseInt(e.target.value) >= 1 && parseInt(e.target.value) <= 3
+                    ? changeAmount({id: cartProduct.id, value: parseInt(e.target.value)})
+                    : false
+                }
               />
               <button
                 className={styles.btn}
