@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import { getAllCartProducts } from '../../../redux/cartRedux';
 
-import formatPrice from '../../../utils/formatPrice';
 import calculatePrice from '../../../utils/calculatePrice';
 
 import styles from './OrderSummary.module.scss';
@@ -17,7 +16,7 @@ const OrderSummary = () => {
 
   const delivery = 20;
   const productsPrice = cartProducts.map(product =>
-    calculatePrice(formatPrice(product.price), product.amount)
+    calculatePrice(product.price, product.amount)
   );
   const subtotalPrice = productsPrice.reduce((a, b) => a + b, 0);
   const totalPrice = `$${subtotalPrice + delivery}`;

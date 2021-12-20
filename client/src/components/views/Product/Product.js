@@ -32,10 +32,10 @@ const Product = props => {
       <Container className={styles.root}>
         <Row>
           <Col className={styles.imageWrapper} xs='12' md='6' lg='4' xl='3'>
-            <img className={styles.image} src={product.imageTwo} alt='' />
+            <img className={styles.image} src={product.imageOne} alt='' />
           </Col>
           <Col className={styles.imageWrapper} xs='12' md='6' lg='4' xl='3'>
-            <img className={styles.image} src={product.imageThree} alt='' />
+            <img className={styles.image} src={product.imageTwo} alt='' />
           </Col>
           <Col className={styles.wrapper} xs='12' lg='4' xl='6'>
             <h2 className={styles.title}>{product.name}</h2>

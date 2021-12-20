@@ -12,7 +12,7 @@ const ProductSummary = ({ id, imageOne, name, price }) => (
       <article className={styles.component}>
         <img src={imageOne} alt='' />
         <h3 className={styles.name}>{name}</h3>
-        <p>Price: {price}</p>
+        <p>{`Price: $${price}`}</p>
       </article>
     </Link>
   </Col>
@@ -22,7 +22,7 @@ ProductSummary.propTypes = {
   id: PropTypes.number,
   imageOne: PropTypes.string,
   name: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
 };
 
 export default ProductSummary;

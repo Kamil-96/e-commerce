@@ -10,7 +10,6 @@ import {
   amountChange,
 } from '../../../redux/cartRedux';
 
-import formatPrice from '../../../utils/formatPrice';
 import calculatePrice from '../../../utils/calculatePrice';
 
 import styles from './Cart.module.scss';
@@ -75,7 +74,7 @@ const Cart = () => {
           </Col>
           <Col xs='12' md='2'>
             <h4>{`$${calculatePrice(
-              formatPrice(cartProduct.price),
+              cartProduct.price,
               cartProduct.amount
             )}`}</h4>
           </Col>
