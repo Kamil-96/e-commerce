@@ -1,8 +1,6 @@
-import products from '../data/products';
-
 export const initialState = {
   products: {
-    data: products,
+    data: [],
     loading: {
       active: false,
       error: false,

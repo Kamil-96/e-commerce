@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAll, loadProductsRequest } from '../../../redux/productsRedux';
 
 import styles from './Home.module.scss';
 
@@ -12,7 +12,14 @@ import Hero from '../../features/Hero/Hero';
 import { Container, Row } from 'reactstrap';
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   const products = useSelector(state => getAll(state));
+
+  useEffect(() => {
+    const loadProducts = () => dispatch(loadProductsRequest());
+    loadProducts();
+  }, [dispatch]);
 
   return (
     <div className={styles.root}>
