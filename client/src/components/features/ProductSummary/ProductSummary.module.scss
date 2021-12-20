@@ -2,22 +2,22 @@
 
 .link {
   text-decoration: none;
-  color: $product-summary-text;
+  color: $color-dark;
 
   &:hover {
-    color: $product-summary-text;
+    color: $color-dark;
   }
 
   .component {
     max-width: 300px;
     height: 450px;
     margin-bottom: ($base-size * 2);
-    box-shadow: $product-summary-box-shadow;
+    box-shadow: $box-shadow-one;
     border-radius: 10px;
     text-align: center;
 
     &:hover {
-      box-shadow: $product-summary-box-shadow-hover;
+      box-shadow: $box-shadow-one-hover;
     }
 
     img {

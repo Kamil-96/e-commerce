@@ -15,34 +15,3 @@ $box-shadow-one: 0px 10px 20px rgba(0, 0, 0, 0.19),
   0px 6px 6px rgba(0, 0, 0, 0.19);
 $box-shadow-one-hover: 0px 14px 28px rgba(0, 0, 0, 0.25),
   0px 10px 10px rgba(0, 0, 0, 0.25);
-
-// ProductSummary
-$product-summary-text: $color-dark;
-$product-summary-box-shadow: $box-shadow-one;
-$product-summary-box-shadow-hover: $box-shadow-one-hover;
-
-// Footer
-$footer-background: $color-dark;
-$footer-text: $color-white;
-$footer-icon-color: $color-light-grey-one;
-$footer-icon-hover: $color-light-grey-two;
-
-// Header
-$header-logo: $color-white;
-$header-nav-text: $color-light-grey-one;
-$header-nav-text-hover: $color-light-grey-two;
-
-// Cart
-$cart-box-shadow: 0px 0px 15px 0px rgba(108, 117, 125, 1);
-$cart-btn-bg: $color-white;
-$cart-btn-border: $color-grey-two;
-
-// Product
-$product-img-box-shadow: $box-shadow-one;
-$product-img-box-shadow-hover: $box-shadow-one-hover;
-$product-input-box-shadow: 0px 0px 10px 0px rgba(92, 99, 106, 1);
-$product-input-border: $color-grey-one;
-
-// Button
-$button-bg: $color-grey-two;
-$button-bg-hov: $color-grey-one;

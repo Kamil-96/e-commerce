@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  background: $button-bg;
+  background: $color-grey-two;
   color: $color-white;
   border: 0;
   text-align: center;
@@ -10,7 +10,7 @@
   transition: $transition;
 
   &:hover {
-    background: $button-bg-hov;
+    background: $color-grey-one;
   }
 
   &.big {

@@ -2,7 +2,7 @@
 
 .logo {
   font-size: 22px;
-  color: $header-logo;
+  color: $color-white;
 }
 
 .navItem {
@@ -10,11 +10,11 @@
 }
 
 .navLink {
-  color: $header-nav-text;
+  color: $color-light-grey-one;
 
 
   &:hover {
-    color: $header-nav-text-hover;
+    color: $color-light-grey-two;
   }
 }
 
