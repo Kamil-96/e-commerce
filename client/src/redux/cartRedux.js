@@ -11,6 +11,7 @@ const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 const AMOUNT_INCREASE = createActionName('AMOUNT_INCREASE');
 const AMOUNT_DECREASE = createActionName('AMOUNT_DECREASE');
 const AMOUNT_CHANGE = createActionName('AMOUNT_CHANGE');
+const ADD_MESSAGE = createActionName('ADD_MESSAGE');
 
 /* action creators */
 export const addToCart = payload => ({ payload, type: ADD_TO_CART });
@@ -18,6 +19,7 @@ export const removeFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 export const amountIncrease = payload => ({ payload, type: AMOUNT_INCREASE });
 export const amountDecrease = payload => ({ payload, type: AMOUNT_DECREASE });
 export const amountChange = payload => ({ payload, type: AMOUNT_CHANGE });
+export const addMessage = payload => ({ payload, type: ADD_MESSAGE });
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
@@ -49,6 +51,9 @@ export const reducer = (statePart = [], action = {}) => {
           ? { ...item, amount: action.payload.value }
           : item
       );
+    }
+    case ADD_MESSAGE: {
+      return statePart.map(item => item.id === action.payload.id ? { ...item, message: action.payload.value } : item);
     }
     default:
       return statePart;

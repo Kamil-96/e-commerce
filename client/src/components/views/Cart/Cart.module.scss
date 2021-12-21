@@ -68,8 +68,11 @@ input[type=number] {
 }
 
 .messageInput {
-  width: 100%;
   margin-top: ($base-size * 0.5);
+
+  &:focus {
+    box-shadow: $box-shadow-input !important;
+  }
 }
 
 .emptyInfo {

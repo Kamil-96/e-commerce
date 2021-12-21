@@ -23,6 +23,7 @@ const Product = props => {
 
   const handleClick = () => {
     product.amount = parseInt(amount);
+    product.message = '';
     addProduct(product);
   };
 

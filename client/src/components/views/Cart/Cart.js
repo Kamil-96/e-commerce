@@ -8,6 +8,7 @@ import {
   amountIncrease,
   amountDecrease,
   amountChange,
+  addMessage as addMessageAction,
 } from '../../../redux/cartRedux';
 
 import calculatePrice from '../../../utils/calculatePrice';
@@ -16,7 +17,7 @@ import styles from './Cart.module.scss';
 
 import Button from '../../common/Button/Button';
 
-import { Col, Container, Row } from 'reactstrap';
+import { Col, Container, Input, Row } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -28,6 +29,7 @@ const Cart = () => {
   const increaseAmount = id => dispatch(amountIncrease(id));
   const decreaseAmount = id => dispatch(amountDecrease(id));
   const changeAmount = payload => dispatch(amountChange(payload));
+  const addMessage = payload => dispatch(addMessageAction(payload));
 
   return (
     <Container className={styles.root}>
@@ -54,9 +56,9 @@ const Cart = () => {
                 min='1'
                 max='3'
                 value={cartProduct.amount}
-                onChange={e =>
+                onChange={ e =>
                   parseInt(e.target.value) >= 1 && parseInt(e.target.value) <= 3
-                    ? changeAmount({id: cartProduct.id, value: parseInt(e.target.value)})
+                    ? changeAmount({ id: cartProduct.id, value: parseInt(e.target.value) })
                     : false
                 }
               />
@@ -87,21 +89,24 @@ const Cart = () => {
             </button>
           </Col>
           <Col>
-            <textarea
+            <Input
               className={styles.messageInput}
               name='message'
+              type='textarea'
+              value={cartProduct.message}
               placeholder='Type your message to personalize the product (optional)'
               rows='1'
+              onChange={ e => addMessage({ id: cartProduct.id, value: e.target.value })}
             />
           </Col>
         </Row>
       ))}
       {cartProducts.length ? (
-        <Link to='/form'>
-          <div className={styles.btnWrapper}>
+        <div className={styles.btnWrapper}>
+          <Link to='/form'>
             <Button>Proceed to checkout</Button>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ) : (
         <h2 className={styles.emptyInfo}>Your cart is empty</h2>
       )}
