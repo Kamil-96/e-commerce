@@ -11,7 +11,7 @@
 
 .navLink {
   color: $color-light-grey-one;
-
+  transition: $transition;
 
   &:hover {
     color: $color-light-grey-two;

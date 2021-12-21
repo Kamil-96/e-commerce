@@ -10,6 +10,23 @@
   border-radius: $radius;
 }
 
+.inputWrapper {
+
+  input:focus {
+    box-shadow: $box-shadow-input;
+  }
+
+  a {
+    color: $color-grey-two;
+    font-weight: bold;
+    transition: $transition;
+
+    &:hover {
+      color: $color-grey-one;
+    }
+  }
+}
+
 .title {
   text-align: center;
   font-size: ($base-size * 3);

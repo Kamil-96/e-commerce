@@ -28,6 +28,7 @@
   padding-right: ($base-size * 0.25);
   font-size: ($base-size * 1.25);
   color: $color-light-grey-one;
+  transition: $transition;
 
   &:hover {
     color: $color-light-grey-two;

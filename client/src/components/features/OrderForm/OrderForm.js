@@ -13,19 +13,19 @@ const OrderForm = () => (
       <Row className={styles.columnsWrapper}>
         <Col className={styles.contentWrapper} xs="12" md="5">
           <h2 className={styles.subtitle}>Contact details</h2>
-          <FormGroup>
+          <FormGroup className={styles.inputWrapper}>
             <Label for="clientName">Name</Label>
             <Input type="text" placeholder="Amanda Doe" required />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className={styles.inputWrapper}>
             <Label for="clientEmail">Email</Label>
             <Input type="email" placeholder="amandadoe@example.com" required />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className={styles.inputWrapper}>
             <Label for="clientPhoneNumber">Phone number</Label>
             <Input type="text" placeholder="123321456" maxLength="9" required />
           </FormGroup>
-          <FormGroup>
+          <FormGroup className={styles.inputWrapper}>
             <Label check>
               <Input type="checkbox" required /> I agree with <a className={styles.link} href="#">Terms and conditions</a> and <a className={styles.link} href="#">Privacy Policy</a>.           {/*eslint-disable-line*/}
             </Label>
