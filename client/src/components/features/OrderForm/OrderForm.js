@@ -9,16 +9,19 @@ import { addOrderRequest } from '../../../redux/ordersRedux';
 
 import styles from './OrderForm.module.scss';
 
-import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Col, Form, FormGroup, Input, Label, Row, Alert } from 'reactstrap';
 
 import OrderSummary from '../OrderSummary/OrderSummary';
 
 import calculatePrice from '../../../utils/calculatePrice';
 
+import validator from 'validator';
+
 const OrderForm = () => {
   const [nameInput, setNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
+  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
   const addOrder = order => dispatch(addOrderRequest(order));
@@ -54,7 +57,7 @@ const OrderForm = () => {
     products: orderProductsData,
     name: nameInput,
     email: emailInput,
-    phoneNumber: parseInt(phoneInput),
+    phoneNumber: phoneInput,
     totalOrderPrice: `$${totalPrice}`,
   };
 
@@ -70,24 +73,38 @@ const OrderForm = () => {
     setPhoneInput(e.target.value);
   };
 
+  const clearErrorHandler = () => {
+    setError(null);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    if(nameInput && emailInput && phoneInput) {
+    let error = null;
+
+    if(!nameInput.length || !emailInput || !phoneInput) error = `You can't leave fields empty.`;
+    else if(nameInput.length > 40 || emailInput.length > 50 || phoneInput.length !== 9) error = `Incorrect number of characters. 'Name' field can have max 40 characters, 'email' max 50 and 'phoneNumber' exactly 9.`;
+    else if(!validator.isAlpha(nameInput, 'en-US', { ignore: ' ' })) error = `Invalid name.`;
+    else if(!validator.isEmail(emailInput)) error = `Invalid email.`;
+    else if(!validator.isMobilePhone(phoneInput)) error = `Invalid phone number.`;
+
+    if(!error) {
       addOrder(order);
       clearCart();
 
       setNameInput('');
       setEmailInput('');
       setPhoneInput('');
+      setError(null);
     } else {
-      alert('The form has to be filled to place order');
+      setError(error);
     }
   };
 
   return (
     <div className={styles.root}>
       <h1 className={styles.title}>Order products</h1>
+      { (error) && <Alert color="danger" toggle={clearErrorHandler}>{ error }</Alert> }
       <Form onSubmit={handleSubmit}>
         <Row className={styles.columnsWrapper}>
           <Col className={styles.contentWrapper} xs='12' md='5'>
@@ -99,6 +116,7 @@ const OrderForm = () => {
                 value={nameInput}
                 onChange={nameInputHandler}
                 placeholder='Amanda Doe'
+                maxLength='40'
                 required
               />
             </FormGroup>
@@ -109,6 +127,7 @@ const OrderForm = () => {
                 value={emailInput}
                 onChange={emailInputHandler}
                 placeholder='amandadoe@example.com'
+                maxLength='40'
                 required
               />
             </FormGroup>
@@ -119,6 +138,7 @@ const OrderForm = () => {
                 value={phoneInput}
                 onChange={phoneInputHandler}
                 placeholder='123321456'
+                minLength='9'
                 maxLength='9'
                 required
               />
