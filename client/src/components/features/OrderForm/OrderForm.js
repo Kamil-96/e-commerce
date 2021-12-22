@@ -25,7 +25,7 @@ const OrderForm = () => {
   const orderProductsData = cartProducts.map(item => {
     return {
       id: item._id,
-      name: item.name,
+      productName: item.name,
       amount: item.amount,
       priceOne: `$${item.price}`,
       totalPrice: `$${item.price * item.amount}`,
@@ -44,24 +44,13 @@ const OrderForm = () => {
 
   const totalPrice = subtotalPrice + delivery;
 
-  // Gather another helpful data...
-  const orderPrice = {
-    items: `$${subtotalPrice}`,
-    delivery: `$${delivery}`,
-    totalPrice: `$${totalPrice}`,
-  };
-
-  const clientData = {
-    name: nameInput,
-    email: emailInput,
-    phoneNumber: phoneInput,
-  };
-
-  // ...and use them in one object
+  // Collect orders data
   const order = {
     products: orderProductsData,
-    clientData: clientData,
-    priceSummary: orderPrice,
+    name: nameInput,
+    email: emailInput,
+    phoneNumber: parseInt(phoneInput),
+    totalOrderPrice: `$${totalPrice}`,
   };
 
   console.log(order);
