@@ -7,4 +7,11 @@ export const initialState = {
     },
   },
   cart: [],
+  orders: {
+    data: [],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
 };

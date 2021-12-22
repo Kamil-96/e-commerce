@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { getAllCartProducts } from '../../../redux/cartRedux';
+import { getAllCartProducts, clearCart as clearCartAction } from '../../../redux/cartRedux';
+import { addOrderRequest } from '../../../redux/ordersRedux';
 
 import styles from './OrderForm.module.scss';
 
@@ -18,6 +19,10 @@ const OrderForm = () => {
   const [nameInput, setNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
+
+  const dispatch = useDispatch();
+  const addOrder = order => dispatch(addOrderRequest(order));
+  const clearCart = () => dispatch(clearCartAction());
 
   const cartProducts = useSelector(state => getAllCartProducts(state));
 
@@ -53,8 +58,6 @@ const OrderForm = () => {
     totalOrderPrice: `$${totalPrice}`,
   };
 
-  console.log(order);
-
   const nameInputHandler = e => {
     setNameInput(e.target.value);
   };
@@ -67,10 +70,25 @@ const OrderForm = () => {
     setPhoneInput(e.target.value);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if(nameInput && emailInput && phoneInput) {
+      addOrder(order);
+      clearCart();
+
+      setNameInput('');
+      setEmailInput('');
+      setPhoneInput('');
+    } else {
+      alert('The form has to be filled to place order');
+    }
+  };
+
   return (
     <div className={styles.root}>
       <h1 className={styles.title}>Order products</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Row className={styles.columnsWrapper}>
           <Col className={styles.contentWrapper} xs='12' md='5'>
             <h2 className={styles.subtitle}>Contact details</h2>
