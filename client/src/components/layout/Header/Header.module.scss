@@ -1,42 +1,49 @@
 @import '../../../styles/settings.scss';
 
+.root {
+  min-height: $base-size * 2.5;
+  width: 100%;
+  background: $color-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.logoWrapper {
+  margin-left: $base-size * 0.5;
+}
+
 .logo {
   font-size: 22px;
   color: $color-white;
+
+  &:hover {
+    color: $color-white;
+  }
 }
 
-.navItem {
-  margin-right: ($base-size * 0.5);
+.menu {
+  ul {
+    list-style-type: none;
+    display: inline-flex;
+    font-size: $base-size;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding-right: $base-size * 0.5;
+    }
+  }
 }
 
-.navLink {
+.link {
   color: $color-light-grey-one;
   transition: $transition;
 
   &:hover {
     color: $color-light-grey-two;
-  }
-}
-
-.cart {
-  height: 18px;
-}
-
-.cartWrapper {
-  display: flex;
-  align-items: center;
-
-  .link {
-    padding-right: 3px !important;
-  }
-
-  svg {
-    filter: invert(0.7);
-  }
-}
-
-@media (max-width: 332px) {
-  .logo {
-    font-size: ($base-size * 0.75) !important;
   }
 }

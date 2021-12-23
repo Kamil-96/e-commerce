@@ -1,44 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
-import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from 'reactstrap';
 
 import styles from './Header.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Header = props => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
+const Header = () => {
   return (
-    <Navbar color='dark' dark expand='md' className='px-3 fixed-top'>
-      <Link to='/'>
-        <span className={styles.logo}>Exceptional Shop</span>
-      </Link>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className='ms-auto align-items-center' navbar>
-          <NavItem className={styles.navItem}>
-            <NavLink className={styles.navLink} exact to='/'>
+    <nav className={styles.root}>
+      <div className={styles.logoWrapper}>
+        <Link to='/' className={styles.logo}>
+          <span>Exceptional Shop</span>
+        </Link>
+      </div>
+      <div className={styles.menu}>
+        <ul>
+          <li>
+            <NavLink className={styles.link} exact to='/'>
               Home
             </NavLink>
-          </NavItem>
-          <NavItem className={styles.cartWrapper}>
-            <NavLink
-              exact
-              to='/cart'
-              className={`${styles.link} ${styles.navLink}`}
-            >
+          </li>
+          <li>
+            <NavLink className={styles.link} exact to='/cart'>
               Cart
+              <FontAwesomeIcon icon={faShoppingCart} />
             </NavLink>
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </NavItem>
-        </Nav>
-      </Collapse>
-    </Navbar>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

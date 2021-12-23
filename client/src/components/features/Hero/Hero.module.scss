@@ -8,7 +8,7 @@
 
 .container {
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   left: 50%;
   top: 50%;
   width: 100%;
@@ -19,10 +19,6 @@
 
 .title {
   font-size: calc(20px + 3vw);
-}
-
-.subtitle {
-  font-size: calc(20px + 2vw);
 }
 
 .image {
