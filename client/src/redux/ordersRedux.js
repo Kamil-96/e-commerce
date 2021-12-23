@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 
+/* selectors */
+export const getRequestStatus = ({ orders }) => orders.loading;
+
 /* action name creator */
 const reducerName = 'orders';
 const createActionName = name => `app/${reducerName}/${name}`;
@@ -11,6 +14,7 @@ const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
 
 const ADD_ORDER = createActionName('ADD_ORDER');
+const CLEAR_REQUEST_STATUS = createActionName('CLEAR_REQUEST_STATUS');
 
 /* action creators */
 export const fetchStarted = () => ({ type: FETCH_START });
@@ -18,6 +22,7 @@ export const fetchSuccess = () => ({ type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 export const addOrder = payload => ({ payload, type: ADD_ORDER });
+export const clearRequestStatus = () => ({ type: CLEAR_REQUEST_STATUS });
 
 /* thunk creators */
 export const addOrderRequest = order => {
@@ -47,6 +52,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: true,
           error: false,
+          success: false,
         },
       };
     }
@@ -56,6 +62,7 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: false,
+          success: true,
         },
       };
     }
@@ -65,6 +72,17 @@ export const reducer = (statePart = [], action = {}) => {
         loading: {
           active: false,
           error: action.payload,
+          success: false,
+        },
+      };
+    }
+    case CLEAR_REQUEST_STATUS: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+          success: false,
         },
       };
     }

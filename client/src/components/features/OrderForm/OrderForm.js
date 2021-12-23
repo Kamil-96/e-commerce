@@ -4,12 +4,28 @@ import React, { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getAllCartProducts, clearCart as clearCartAction } from '../../../redux/cartRedux';
-import { addOrderRequest } from '../../../redux/ordersRedux';
+import {
+  getAllCartProducts,
+  clearCart as clearCartAction,
+} from '../../../redux/cartRedux';
+import {
+  addOrderRequest,
+  getRequestStatus,
+  clearRequestStatus,
+} from '../../../redux/ordersRedux';
 
 import styles from './OrderForm.module.scss';
 
-import { Col, Form, FormGroup, Input, Label, Row, Alert } from 'reactstrap';
+import {
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+  Alert,
+  Progress,
+} from 'reactstrap';
 
 import OrderSummary from '../OrderSummary/OrderSummary';
 
@@ -26,7 +42,9 @@ const OrderForm = () => {
   const dispatch = useDispatch();
   const addOrder = order => dispatch(addOrderRequest(order));
   const clearCart = () => dispatch(clearCartAction());
+  const clearRequest = () => dispatch(clearRequestStatus());
 
+  const requestStatus = useSelector(state => getRequestStatus(state));
   const cartProducts = useSelector(state => getAllCartProducts(state));
 
   // Extract only necessary products data for placing order
@@ -82,13 +100,23 @@ const OrderForm = () => {
 
     let error = null;
 
-    if(!nameInput.length || !emailInput || !phoneInput) error = `You can't leave fields empty.`;
-    else if(nameInput.length > 40 || emailInput.length > 50 || phoneInput.length !== 9) error = `Incorrect number of characters. 'Name' field can have max 40 characters, 'email' max 50 and 'phoneNumber' exactly 9.`;
-    else if(!validator.isAlpha(nameInput, 'en-US', { ignore: ' ' })) error = `Invalid name.`;
-    else if(!validator.isEmail(emailInput)) error = `Invalid email.`;
-    else if(!validator.isMobilePhone(phoneInput)) error = `Invalid phone number.`;
+    if (!nameInput.length || !emailInput || !phoneInput)
+      error = `You can't leave fields empty.`;
+    else if (
+      nameInput.length > 40 ||
+      emailInput.length > 50 ||
+      phoneInput.length !== 9
+    )
+      error = `Incorrect number of characters. 'Name' field can have max 40 characters, 'email' max 50 and 'phoneNumber' exactly 9.`;
+    else if (!validator.isAlpha(nameInput, 'en-US', { ignore: ' ' }))
+      error = `Invalid name.`;
+    else if (!validator.isEmail(emailInput)) error = `Invalid email.`;
+    else if (!validator.isMobilePhone(phoneInput))
+      error = `Invalid phone number.`;
+    else if (!order.products.length)
+      error = `Order cannot be placed without any product.`;
 
-    if(!error) {
+    if (!error) {
       addOrder(order);
       clearCart();
 
@@ -104,7 +132,25 @@ const OrderForm = () => {
   return (
     <div className={styles.root}>
       <h1 className={styles.title}>Order products</h1>
-      { (error) && <Alert color="danger" toggle={clearErrorHandler}>{ error }</Alert> }
+      {error && (
+        <Alert color='danger' toggle={clearErrorHandler}>
+          {error}
+        </Alert>
+      )}
+      {requestStatus.active && !error && (
+        <Progress animated color='secondary' value={50} />
+      )}
+      {requestStatus.success && !error && (
+        <Alert color='success' toggle={clearRequest}>
+          Your order has been successfully placed!
+        </Alert>
+      )}
+      {requestStatus.error && !error && (
+        <Alert color='danger' toggle={clearRequest}>
+          Ooops... Something went wrong and the order has not been placed.
+          Please try again.
+        </Alert>
+      )}
       <Form onSubmit={handleSubmit}>
         <Row className={styles.columnsWrapper}>
           <Col className={styles.contentWrapper} xs='12' md='5'>

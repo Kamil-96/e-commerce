@@ -12,6 +12,7 @@ export const initialState = {
     loading: {
       active: false,
       error: false,
+      success: false,
     },
   },
 };
