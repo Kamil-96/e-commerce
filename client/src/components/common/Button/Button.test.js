@@ -4,7 +4,7 @@ import Button from './Button';
 
 describe('Component Button', () => {
   it('should render without crashing', () => {
-    const component = shallow(<Button />);
+    const component = shallow(<Button variant='' />);
     expect(component).toBeTruthy();
   });
 });
