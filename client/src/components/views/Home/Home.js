@@ -8,6 +8,7 @@ import styles from './Home.module.scss';
 
 import ProductSummary from '../../features/ProductSummary/ProductSummary';
 import Hero from '../../features/Hero/Hero';
+import ProductsFilters from '../../features/ProductsFilters/ProductsFilters';
 
 import { Container, Row } from 'reactstrap';
 
@@ -26,6 +27,7 @@ const Home = () => {
       <Hero />
       <h1 className={styles.title}>Find your dream clothes!</h1>
       <Container className={styles.container}>
+        <ProductsFilters />
         <Row>
           {products.map(product => (
             <ProductSummary key={product.id} {...product} />
