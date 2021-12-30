@@ -1,18 +1,22 @@
 @import '../../../styles/settings.scss';
 
 .component {
-  display: flex;
   margin-bottom: $base-size * 2;
 }
 
 .searchLabel {
   height: 100%;
-  width: 90%;
+  width: 100%;
 }
 
 .searchInput {
   height: 100%;
   width: 100%;
+  @extend %btn-input;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .filterContainer {
@@ -20,17 +24,28 @@
 }
 
 .btn {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  padding: $base-size * 0.25;
+  @extend %btn-input;
+
+  span {
+    padding-right: $base-size * 0.5;
+  }
+
+  svg {
+    color: $color-dark;
+  }
 }
 
 .listContainer {
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: calc(100% - 1.5rem);
   background: $color-white;
   box-shadow: $box-shadow-one;
+  border: 1px solid $color-grey-one;
+  z-index: 999;
 }
 
 .label {
@@ -47,5 +62,20 @@
   input {
     height: 0;
     width: 0;
+  }
+
+  span {
+    margin-right: $base-size * 0.25;
+  }
+
+  svg {
+    color: $color-dark;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputContainer,
+  .filterContainerMobile {
+    margin-bottom: $base-size * 1.5;
   }
 }

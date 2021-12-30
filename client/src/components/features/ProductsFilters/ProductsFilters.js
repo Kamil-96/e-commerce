@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './ProductsFilters.module.scss';
 
-import { Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
@@ -51,8 +51,8 @@ const ProductsFilters = () => {
   };
 
   return (
-    <div className={styles.component}>
-      <Col md={4}>
+    <Row className={styles.component}>
+      <Col className={styles.inputContainer} xs='12' md='4'>
         <label className={styles.searchLabel}>
           <input
             className={styles.searchInput}
@@ -61,7 +61,11 @@ const ProductsFilters = () => {
           />
         </label>
       </Col>
-      <Col className={styles.filterContainer} md={4}>
+      <Col
+        className={`${styles.filterContainer} ${styles.filterContainerMobile}`}
+        xs='12'
+        md='4'
+      >
         <button className={styles.btn} onClick={() => handleButtons(0)}>
           <span>Gender</span>
           {!buttonState[0] && <FontAwesomeIcon icon={faChevronDown} />}
@@ -77,14 +81,14 @@ const ProductsFilters = () => {
                   checked={isRadioSelected(gender)}
                   onChange={e => handleSelectedInput(e)}
                 />
-                {gender}
+                <span>{gender}</span>
                 {selectedInput === gender && <FontAwesomeIcon icon={faCheck} />}
               </label>
             ))}
           </div>
         )}
       </Col>
-      <Col className={styles.filterContainer} md={4}>
+      <Col className={styles.filterContainer} xs='12' md='4'>
         <button className={styles.btn} onClick={() => handleButtons(1)}>
           <span>Type</span>
           {!buttonState[1] && <FontAwesomeIcon icon={faChevronDown} />}
@@ -99,14 +103,14 @@ const ProductsFilters = () => {
                   checked={checkboxesState[index]}
                   onChange={() => handleCheckboxes(index)}
                 />
-                {type}
+                <span>{type}</span>
                 {checkboxesState[index] && <FontAwesomeIcon icon={faCheck} />}
               </label>
             ))}
           </div>
         )}
       </Col>
-    </div>
+    </Row>
   );
 };
 

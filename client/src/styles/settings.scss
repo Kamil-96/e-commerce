@@ -5,6 +5,7 @@ $transition: 0.3s ease-out;
 
 $font-text: 'Mukta', sans-serif;
 
+// colors
 $color-white: #fff;
 $color-dark: #121111;
 $color-grey-one: #5c636a;
@@ -17,3 +18,16 @@ $box-shadow-one: 0px 10px 20px rgba(0, 0, 0, 0.19),
 $box-shadow-one-hover: 0px 14px 28px rgba(0, 0, 0, 0.25),
   0px 10px 10px rgba(0, 0, 0, 0.25);
 $box-shadow-input: 0px 0px 10px 0px rgba(92, 99, 106, 1);
+
+// extend
+%btn-input {
+  border: 1px solid $color-grey-one;
+  border-radius: $radius * 0.5;
+  color: $color-dark;
+  background: $color-white;
+  font-size: $base-size * 1.25;
+
+  &:focus {
+    box-shadow: $box-shadow-input;
+  }
+}
