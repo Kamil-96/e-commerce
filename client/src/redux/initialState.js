@@ -15,4 +15,9 @@ export const initialState = {
       success: false,
     },
   },
+  filters: {
+    searchPhrase: '',
+    gender: 'All',
+    types: [],
+  },
 };

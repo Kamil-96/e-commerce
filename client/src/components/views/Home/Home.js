@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getAll, loadProductsRequest } from '../../../redux/productsRedux';
+import {
+  getFilteredProducts,
+  loadProductsRequest,
+} from '../../../redux/productsRedux';
 
 import styles from './Home.module.scss';
 
@@ -15,7 +18,7 @@ import { Container, Row } from 'reactstrap';
 const Home = () => {
   const dispatch = useDispatch();
 
-  const products = useSelector(state => getAll(state));
+  const products = useSelector(state => getFilteredProducts(state));
 
   useEffect(() => {
     const loadProducts = () => dispatch(loadProductsRequest());
@@ -29,9 +32,13 @@ const Home = () => {
       <Container className={styles.container}>
         <ProductsFilters />
         <Row>
-          {products.map(product => (
-            <ProductSummary key={product.id} {...product} />
-          ))}
+          {products.length ? (
+            products.map(product => (
+              <ProductSummary key={product.id} {...product} />
+            ))
+          ) : (
+            <p>No results found. Try adjusting the filters.</p>
+          )}
         </Row>
       </Container>
     </div>

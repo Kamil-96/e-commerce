@@ -3,10 +3,37 @@ import { API_URL } from '../config';
 
 /* selectors */
 export const getAll = ({ products }) => products.data;
-export const getProductById =({ products }, productId) => {
-  const filtered = products.data.filter(product => product.id === parseInt(productId));
+
+export const getProductById = ({ products }, productId) => {
+  const filtered = products.data.filter(
+    product => product.id === parseInt(productId)
+  );
 
   return filtered.length ? filtered[0] : null;
+};
+
+export const getFilteredProducts = ({ products, filters }) => {
+  let output = products.data;
+
+  // filter by search phrase
+  if (filters.searchPhrase) {
+    const pattern = new RegExp(filters.searchPhrase, 'i');
+    output = output.filter(product => pattern.test(product.name));
+  }
+
+  // filter by gender
+  if (filters.gender === 'All') {
+    output = output.filter(product => product.gender !== filters.gender);
+  } else {
+    output = output.filter(product => product.gender === filters.gender);
+  }
+
+  // filter by product types
+  if (filters.types.length) {
+    output = output.filter(product => filters.types.includes(product.type));
+  }
+
+  return output;
 };
 
 /* action name creator */
@@ -31,8 +58,7 @@ export const loadProductsRequest = () => {
     try {
       let res = await axios.get(`${API_URL}/products`);
       dispatch(fetchSuccess(res.data));
-    }
-    catch(e) {
+    } catch (e) {
       dispatch(fetchError(e.message));
     }
   };

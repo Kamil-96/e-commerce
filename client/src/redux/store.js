@@ -1,4 +1,4 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -6,12 +6,14 @@ import { initialState } from './initialState';
 import { reducer as productsReducer } from './productsRedux';
 import { reducer as cartReducer } from './cartRedux';
 import { reducer as ordersReducer } from './ordersRedux';
+import { reducer as filtersReducer } from './filtersRedux';
 
 // define reducers
 const reducers = {
   products: productsReducer,
   cart: cartReducer,
   orders: ordersReducer,
+  filters: filtersReducer,
 };
 
 // add blank reducers for initial state properties without reducers
@@ -27,7 +29,5 @@ const combinedReducers = combineReducers(reducers);
 export const store = createStore(
   combinedReducers,
   initialState,
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+  composeWithDevTools(applyMiddleware(thunk))
 );
