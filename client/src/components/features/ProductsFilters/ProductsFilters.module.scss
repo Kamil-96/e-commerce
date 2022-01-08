@@ -24,6 +24,7 @@
 }
 
 .btn {
+  height: 46px;
   width: 100%;
   padding: $base-size * 0.25;
   @extend %btn-input;
@@ -74,8 +75,13 @@
 }
 
 @media (max-width: 768px) {
+
+  .component {
+    margin-bottom: 0;
+  }
+
   .inputContainer,
-  .filterContainerMobile {
+  .filterContainer {
     margin-bottom: $base-size * 1.5;
   }
 }

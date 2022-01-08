@@ -80,7 +80,7 @@ const ProductsFilters = () => {
         </label>
       </Col>
       <Col
-        className={`${styles.filterContainer} ${styles.filterContainerMobile}`}
+        className={styles.filterContainer}
         xs='12'
         md='4'
       >

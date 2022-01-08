@@ -37,7 +37,7 @@ const Home = () => {
               <ProductSummary key={product.id} {...product} />
             ))
           ) : (
-            <p>No results found. Try adjusting the filters.</p>
+            <p className={styles.info}>No results found. Try adjusting the filters.</p>
           )}
         </Row>
       </Container>
